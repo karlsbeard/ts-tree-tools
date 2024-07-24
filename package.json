@@ -10,17 +10,20 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "simple-git-hooks",
-    "test": "vitest"
+    "test": "vitest",
+    "release": "release-it"
   },
   "dependencies": {
     "vue": "^3.4.31"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.23.2",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/node": "^20.14.12",
     "@vitejs/plugin-vue": "^5.0.5",
     "eslint": "9.5.0",
     "lint-staged": "^15.2.7",
+    "release-it": "^17.6.0",
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",

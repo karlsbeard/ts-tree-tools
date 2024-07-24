@@ -16,16 +16,17 @@ export default defineConfig((_) => {
     build: {
       outDir: 'dist',
       lib: {
-        entry: './src/tree.ts',
+        entry: './src/main.ts',
         name: 'tree',
-        fileName: () => 'tree.js',
-        formats: ['es', 'cjs', 'umd'],
+        fileName: () => 'main.js',
+        formats: ['es', 'cjs'],
       },
       emptyOutDir: true,
       sourcemap: dev ? 'inline' : false,
       rollupOptions: {
         output: {
-
+          dynamicImportInCjs: false,
+          inlineDynamicImports: true,
         },
       },
     },
