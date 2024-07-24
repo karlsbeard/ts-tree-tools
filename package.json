@@ -2,7 +2,13 @@
   "name": "ts-tree-tools",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
+  "packageManager": "pnpm@9.5.0",
+  "description": "the tools for tree",
+  "author": "Karl <2557075675@qq.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
