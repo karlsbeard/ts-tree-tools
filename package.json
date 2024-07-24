@@ -16,6 +16,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "simple-git-hooks",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "release": "release-it"
   },
