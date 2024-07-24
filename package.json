@@ -1,7 +1,7 @@
 {
   "name": "ts-tree-tools",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@9.5.0",
   "description": "the tools for tree",
   "author": "Karl <2557075675@qq.com>",
