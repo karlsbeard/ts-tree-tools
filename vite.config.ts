@@ -24,6 +24,9 @@ export default defineConfig((_) => {
       emptyOutDir: true,
       sourcemap: dev ? 'inline' : false,
       rollupOptions: {
+        external: (id) => {
+          return id.includes('spec.') || id.includes('test.') || id.includes('node_modules')
+        },
         output: {
           dynamicImportInCjs: false,
           inlineDynamicImports: true,
