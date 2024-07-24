@@ -19,7 +19,7 @@ export default defineConfig((_) => {
         entry: './src/main.ts',
         name: 'tree',
         fileName: () => 'main.js',
-        formats: ['es', 'cjs'],
+        formats: ['es', 'cjs', 'umd'],
       },
       emptyOutDir: true,
       sourcemap: dev ? 'inline' : false,
