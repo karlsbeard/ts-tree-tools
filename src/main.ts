@@ -22,6 +22,12 @@ function getConfig(config: Partial<Config>): Config {
 }
 
 export const TTs = {
+  /**
+   *
+   * @param list the list structure
+   * @param config the tree config which you want to convert
+   * @returns return the tree structure
+   */
   toTree<T extends BaseTreeNode>(list: T[], config: Partial<Config> = {}): T[] {
     const { id, pid, children } = getConfig(config)
     const map = new Map<string | number, T>()
@@ -41,4 +47,28 @@ export const TTs = {
 
     return result
   },
+  /**
+   *
+   * @param tree the tree structure
+   * @param config the list config which you want to convert
+   * @returns return the list structure
+   */
+  toList<T extends BaseTreeNode>(tree: T[], config: Partial<Config> = {}): T[] {
+    const { children } = getConfig(config)
+    const result: T[] = []
+
+    function loop(list: T[]) {
+      for (const item of list) {
+        const { [children]: _, ...node } = item
+        result.push(node as T)
+        if (item[children]) {
+          loop(item[children])
+        }
+      }
+    }
+    loop(tree)
+
+    return result
+  },
+
 }
