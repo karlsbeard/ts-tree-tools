@@ -1,5 +1,29 @@
-# Vue 3 + TypeScript + Vite
+# TS Tools for processing tree structure
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Introduction
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Ts-Tree-Tools(TTs) is based on [tree-tool](https://github.com/wintc23/js-tree-tool), with no dependencies and small size.
+
+## How to install
+
+```bash
+# 使用pnpm
+pnpm install ts-tree-tools
+
+# 使用npm
+npm install ts-tree-tools
+
+# 使用yarn
+yarn install ts-tree-tools
+```
+
+## How to use
+
+### Import
+
+```js
+// commonjs
+const TTs = require('ts-tree-tools')
+
+//
+```
