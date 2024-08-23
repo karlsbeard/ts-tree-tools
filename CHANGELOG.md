@@ -1,5 +1,7 @@
 
 
+## [0.0.3](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.2...v0.0.3) (2024-08-23)
+
 ## 0.0.2 (2024-08-22)
 
 
