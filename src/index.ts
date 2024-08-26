@@ -71,7 +71,67 @@ export const TTs = {
     return result
   },
 
+  /**
+   * @description find the first node by id in the tree
+   * @param tree the tree structure
+   * @param id the id which you want to find
+   * @returns return the node
+   */
+  findNodeById(tree: BaseTreeNode[], id: string | number): BaseTreeNode | null {
+    for (const node of tree) {
+      if (node.id === id) {
+        return node
+      }
+      if (node.children) {
+        const result = TTs.findNodeById(node.children, id)
+        if (result) {
+          return result
+        }
+      }
+    }
+    return null
+  },
+
+  /**
+   * @description find the first node by call function in the tree
+   * @param tree the tree structure
+   */
+
+  findNodeByFunc(tree: BaseTreeNode[], func: (node: BaseTreeNode) => boolean): BaseTreeNode | null {
+    for (const node of tree) {
+      if (func(node)) {
+        return node
+      }
+      if (node.children) {
+        const result = TTs.findNodeByFunc(node.children, func)
+        if (result) {
+          return result
+        }
+      }
+    }
+    return null
+  },
+
+  /**
+   * @description find the all nodes by call function in the tree
+   * @param tree the tree structure
+   */
+
+  findAllNode(tree: BaseTreeNode[], func: (node: BaseTreeNode) => boolean): BaseTreeNode[] {
+    const result: BaseTreeNode[] = []
+    for (const node of tree) {
+      if (func(node)) {
+        result.push(node)
+      }
+      if (node.children) {
+        result.push(...TTs.findAllNode(node.children, func))
+      }
+    }
+    return result
+  },
 }
+
+// TODO: setting your own tree config
 
 // function makeHandlers() {
 //   const handlers = {} as { [K in keyof typeof TTs]: typeof TTs[K] }

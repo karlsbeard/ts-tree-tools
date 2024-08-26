@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { BaseTreeNode } from '@/main'
-import { TTs } from '@/main'
+import type { BaseTreeNode } from '@/index'
+import { TTs } from '@/index'
 
 interface TreeNode extends BaseTreeNode {
 
