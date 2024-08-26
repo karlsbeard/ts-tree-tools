@@ -1,5 +1,12 @@
 
 
+## [0.0.6](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.5...v0.0.6) (2024-08-26)
+
+
+### Features
+
+* add the path find function ([8b5715c](https://github.com/karlsbeard/ts-tree-tools/commit/8b5715c746e4b28d213b7fdcc9b1a5583efb8966))
+
 ## [0.0.5](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.4...v0.0.5) (2024-08-26)
 
 ## [0.0.4](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.3...v0.0.4) (2024-08-26)
