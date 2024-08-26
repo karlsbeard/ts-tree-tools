@@ -23,7 +23,7 @@ function getConfig(config: Partial<Config>): Config {
 
 export const TTs = {
   /**
-   *
+   * @description convert the list structure to tree structure
    * @param list the list structure
    * @param config the tree config which you want to convert
    * @returns return the tree structure
@@ -48,7 +48,7 @@ export const TTs = {
     return result
   },
   /**
-   *
+   * @description convert the tree structure to list structure
    * @param tree the tree structure
    * @param config the list config which you want to convert
    * @returns return the list structure
