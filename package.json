@@ -12,8 +12,16 @@
   },
   "keywords": [
     "tree",
-    "tools",
-    "list"
+    "tree-structure",
+    "tree-utilities",
+    "list-to-tree",
+    "tree-to-list",
+    "BFS",
+    "DFS",
+    "tree-traversal",
+    "find-node",
+    "find-path",
+    "tree-conversion"
   ],
   "sideEffects": false,
   "exports": {

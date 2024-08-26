@@ -33,10 +33,18 @@ import TTs from 'ts-tree-tools'
 
 #### API
 
-| Methods | Description |
-| ----    | ----        |
-| toTree   | convert the list structure to tree structure |
-| toList      | convert the tree structure to list structure |
-| findNodeById       | find the first node by id in the tree |
-| findNodeByFunc    | find the first node by call function in the tree |
-| findAllNode | find the all nodes by call function in the tree |
+The following methods are available in this library:
+
+| Method | Description |
+| ------ | ----------- |
+| `toTree` | Converts a flat list structure into a hierarchical tree structure. |
+| `toList` | Converts a hierarchical tree structure back into a flat list structure. |
+| `findNodeByIdBFS` | Finds the first node by its `id` using a breadth-first search (BFS) approach. |
+| `findNodeByIdDFS` | Finds the first node by its `id` using a depth-first search (DFS) approach. |
+| `findNodeByFunc` | Finds the first node that satisfies a given function condition in the tree. |
+| `findAllNode` | Finds all nodes that satisfy a given function condition in the tree. |
+| `findPathByIdBFS` | Finds the path from the root to the first node with the specified `id` using BFS. |
+| `findPathByIdDFS` | Finds the path from the root to the first node with the specified `id` using DFS. |
+| `findPathByFuncBFS` | Finds the path from the root to the first node that satisfies a given function using BFS. |
+| `findPathByFuncDFS` | Finds the path from the root to the first node that satisfies a given function using DFS. |
+| `findPathAll` | Finds all paths from the root to all nodes that satisfy a given function condition in the tree. |
