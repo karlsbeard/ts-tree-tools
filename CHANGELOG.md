@@ -1,5 +1,12 @@
 
 
+## [0.0.4](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.3...v0.0.4) (2024-08-26)
+
+
+### Features
+
+* add the findNode & findAllNode function ([55b0e40](https://github.com/karlsbeard/ts-tree-tools/commit/55b0e40a31901468ffb7f53b53cc3b6157ca0d5e))
+
 ## [0.0.3](https://github.com/karlsbeard/ts-tree-tools/compare/v0.0.2...v0.0.3) (2024-08-23)
 
 ## 0.0.2 (2024-08-22)
