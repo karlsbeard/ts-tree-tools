@@ -44,7 +44,7 @@ describe('findNodeById', () => {
       ],
     }
 
-    const resNode = TTs.findNodeById(tree, 2)
+    const resNode = TTs.findNodeByIdBFS(tree, 2)
 
     expect(resNode).toEqual(labelRes)
   })

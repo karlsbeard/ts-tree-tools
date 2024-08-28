@@ -1,7 +1,12 @@
 export interface BaseTreeNode {
   id: string | number
-  pid: string | number | null
-  children?: BaseTreeNode[]
+  children: BaseTreeNode[]
+  [key: string]: any
+}
+
+export interface BaseListNode {
+  id: string | number
+  pid: string | number
   [key: string]: any
 }
 
@@ -17,11 +22,13 @@ const DEFAULT_CONFIG: Config = {
   children: 'children',
 }
 
+// type ToolsKeys = keyof typeof tools
+
 function getConfig(config: Partial<Config>): Config {
-  return { ...DEFAULT_CONFIG, ...config }
+  return Object.assign({}, DEFAULT_CONFIG, config)
 }
 
-export const TTs = {
+const tools = {
   /**
    * @description convert the list structure to tree structure
    * @param list the list structure
@@ -85,7 +92,6 @@ export const TTs = {
 
     while (queue.length) {
       const node = queue.shift()
-
       if (node?.id === id) {
         return node
       }
@@ -106,7 +112,7 @@ export const TTs = {
 
       if (node.children) {
         const children = node.children as T[]
-        const result = TTs.findNodeByIdDFS(children, id)
+        const result = tools.findNodeByIdDFS(children, id)
         if (result) {
           return result
         }
@@ -127,7 +133,7 @@ export const TTs = {
       }
       if (node.children) {
         const children = node.children as T[]
-        const result = TTs.findNodeByFunc(children, func)
+        const result = tools.findNodeByFunc(children, func)
         if (result) {
           return result
         }
@@ -149,7 +155,7 @@ export const TTs = {
       }
       if (node.children) {
         const children = node.children as T[]
-        result.push(...TTs.findAllNode(children, func))
+        result.push(...tools.findAllNode(children, func))
       }
     }
     return result
@@ -260,7 +266,7 @@ export const TTs = {
       }
       if (node.children) {
         const children = node.children as T[]
-        const path = TTs.findPathByFuncDFS(children, func)
+        const path = tools.findPathByFuncDFS(children, func)
         if (path) {
           return path
         }
@@ -284,7 +290,7 @@ export const TTs = {
       }
       if (node.children) {
         const children = node.children as T[]
-        const childPaths = TTs.findPathAll(children, func)
+        const childPaths = tools.findPathAll(children, func)
         for (const childPath of childPaths) {
           allPath.push([node, ...childPath])
         }
@@ -293,40 +299,35 @@ export const TTs = {
     return allPath
   },
 
+  /**
+   * @description filter the tree by func
+   * @param tree the tree structure
+   * @param func the func that you need
+   */
+  // filter<T extends BaseTreeNode>(tree: T[], func: (node: T) => boolean, config = {}): T[] | null {
+  //   config = getConfig(config)
+  //   const { children } = config
+  //   function listFilter(list: T[]): T[] {
+  //     return list.map(node => ({ ...node })).filter((node) => {
+  //       node[children] = node[children] && listFilter(node[children] as T[] || [])
+  //       return func(node) || (node[children] && node[children].length)
+  //     })
+  //   }
+
+  //   return listFilter(tree)
+  // },
+
 }
 
-// TODO: setting your own tree config
+// to get all handlers
+// function makeHandlers<T extends ToolsKeys>(keys: T[]): Record<T, typeof tools[T]> {
+//   const obj: Record<string, any> = {}
 
-// function makeHandlers() {
-//   const handlers = {} as { [K in keyof typeof TTs]: typeof TTs[K] }
-//   for (const key in TTs) {
-//     if (key.startsWith('_'))
-//       continue
-//     handlers[key] = TTs[key]
+//   for (const key of keys) {
+//     obj[key as string] = tools[key]
 //   }
-//   return handlers
+
+//   return obj as Record<T, typeof tools[T]>
 // }
 
-// const handlers = makeHandlers()
-
-// const treeHandler = {
-//   ...handlers,
-//   createInstance(config: Partial<Config> = {}) {
-//     const obj = {}
-//     for (const key in handlers) {
-//       const func = handlers[key]
-//       obj[key] = (...args) => func(...args, config)
-//     }
-//     return obj
-//   },
-// }
-
-// if (typeof window !== 'undefined') {
-//   // @ts-expect-error global variable
-//   window.TTs = treeHandler
-// }
-// else if (typeof exports !== 'undefined') {
-//   module.exports = treeHandler
-// }
-
-// export default treeHandler
+// const handlers = makeHandlers(Object.keys(tools))
