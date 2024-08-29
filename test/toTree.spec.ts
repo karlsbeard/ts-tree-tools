@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { BaseTreeNode } from '@/index'
-import { TTs } from '@/index'
+import type { BaseTreeNode } from '@/type'
+import { toTree } from '@/base'
 
 interface CustomNode extends BaseTreeNode {
   name: string
@@ -14,7 +14,7 @@ describe('toTree', () => {
       { id: 3, pid: 1, name: 'child2' },
       { id: 4, pid: 2, name: 'child1-1' },
     ]
-    const tree = TTs.toTree(list)
+    const tree = toTree(list)
 
     expect(tree).toEqual([
       {
@@ -48,7 +48,7 @@ describe('toTree', () => {
 
   it('return an empty array when input list is empty', () => {
     const list: CustomNode[] = []
-    const tree = TTs.toTree(list)
+    const tree = toTree(list)
     expect(tree).toEqual([])
   })
 
@@ -58,7 +58,7 @@ describe('toTree', () => {
       { id: 2, pid: null, name: 'root 2' },
       { id: 3, pid: 1, name: 'child 1.1' },
     ]
-    const tree = TTs.toTree(list)
+    const tree = toTree(list)
 
     expect(tree).toEqual([
       {
